@@ -1,5 +1,4 @@
 import pandas
-import pickle
 from sklearn import metrics, preprocessing
 from sklearn.model_selection import train_test_split
 
@@ -65,7 +64,5 @@ class Classifier:
         classified_data["_confidence"] = probabilities
         feature_names = [x for x in classified_data.columns if x not in ["_class", "_confidence"]]
         print(feature_names)
-        with open(f'/content/Luanvan_XAI/models/{self.model}.pkl', 'wb') as file_name:
-          pickle.dump(classifier, file_name)
 
         return accuracy, classified_data, feature_names
