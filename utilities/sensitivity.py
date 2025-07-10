@@ -42,7 +42,7 @@ class Sensitivity:
     def _estimate_strenghts(self):
         estimated_strengths = FeatureStrengthEstimator(self.complete_network, self.base_network)\
             .compute_estimated_strenghts(self.feature_names)
-        print(estimated_strengths)
+        # print(estimated_strengths)
         self.sensitivities = (self.real_strengths.drop("node", axis=1) - estimated_strengths.drop("node", axis=1)).abs()
         self.sensitivities["node"] = estimated_strengths["node"]
         return self.sensitivities
