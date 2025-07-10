@@ -37,7 +37,7 @@ class Sensitivity:
     def _build_complete_network(self):
         self.complete_network = Network(self.classified_data).build_network()
         self.real_strengths = FeatureStrength(self.complete_network).compute_strenghts(self.feature_names)
-        print(self.real_strengths)
+        # print(self.real_strengths)
 
     def _estimate_strenghts(self):
         estimated_strengths = FeatureStrengthEstimator(self.complete_network, self.base_network)\
@@ -51,5 +51,4 @@ class Sensitivity:
         df = self.sensitivities.drop("node", axis=1).mean().to_frame()
         df.columns = ["sensitivity"]
         return df
-
 
