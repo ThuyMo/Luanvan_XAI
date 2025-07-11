@@ -1,15 +1,14 @@
-from sklearn.svm import SVC
+from sklearn.naive_bayes import CategoricalNB
 
-
-class SVMRClassifier:
+class CNBClassifier:
     def __init__(self, x_train, x_test, y_train, y_test):
-        super(SVMRClassifier, self).__init__()
+        super(CNBClassifier, self).__init__()
         self.x_train = x_train
         self.x_test = x_test
         self.y_train = y_train
         self.y_test = y_test
-        
-        self.clf = SVC(kernel='rbf', probability=True)
+
+        self.clf = CategoricalNB()
         self.clf = self.clf.fit(self.x_train, self.y_train)
 
     def run(self):

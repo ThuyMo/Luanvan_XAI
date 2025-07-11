@@ -1,0 +1,36 @@
+from sklearn.ensemble import StackingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC
+
+class StackingClassifierModel:
+    def __init__(self, x_train, x_test, y_train, y_test):
+        super(StackingClassifierModel, self).__init__()
+        self.x_train = x_train
+        self.x_test = x_test
+        self.y_train = y_train
+        self.y_test = y_test
+
+        # Các mô hình cơ sở (base learners)
+        estimators = [
+            ('dt', DecisionTreeClassifier()),
+            ('svc', SVC(probability=True))
+        ]
+
+        # Mô hình meta (final estimator)
+        final_estimator = LogisticRegression(max_iter=1000)
+
+        # Tạo StackingClassifier
+        self.clf = StackingClassifier(
+            estimators=estimators,
+            final_estimator=final_estimator,
+            passthrough=False
+        )
+
+        self.clf = self.clf.fit(self.x_train, self.y_train)
+
+    def run(self):
+        return self.clf.predict(self.x_test)
+
+    def get_proba(self):
+        return self.clf.predict_proba(self.x_test)
