@@ -3,7 +3,7 @@ from sklearn.naive_bayes import BernoulliNB
 
 class BNBClassifier:
     def __init__(self, x_train, x_test, y_train, y_test):
-        super(BernoulliNB, self).__init__()
+        super(BNBClassifier, self).__init__()
         self.x_train = x_train
         self.x_test = x_test
         self.y_train = y_train
