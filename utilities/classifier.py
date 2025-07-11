@@ -120,7 +120,7 @@ class Classifier:
         elif self.model == "Stacking":
             classifier = StackingClassifierModel(x_train, x_test, y_train, y_test)
         elif self.model == "TFL":
-            classifier = TransferLearningClassifier(x_train, x_test, y_train, y_test)
+            classifier = TransferLearningClassifier(x_train, x_test, y_train, y_test, y_train.nunique())
         elif self.model == "TF":
             classifier = TransformerClassifier(x_train, x_test, y_train, y_test)
         elif self.model == "VT":
