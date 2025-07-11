@@ -1,8 +1,8 @@
 from sklearn.ensemble import ExtraTreesClassifier
 
-class ETCClassifier:
+class ETClassifier:
     def __init__(self, x_train, x_test, y_train, y_test):
-        super(ETCClassifier, self).__init__()
+        super(ETClassifier, self).__init__()
         self.x_train = x_train
         self.x_test = x_test
         self.y_train = y_train

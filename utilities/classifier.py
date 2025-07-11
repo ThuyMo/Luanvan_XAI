@@ -7,7 +7,32 @@ from utilities.nb_classifier import NBClassifier
 from utilities.rf_classifier import RFClassifier
 from utilities.svmp_classifier import SVMPClassifier
 from utilities.svmr_classifier import SVMRClassifier
-
+from utilities.ab_classifier import AdaBoostModel
+from utilities.bg_classifier import BaggingModel
+from utilities.blstm_classifier import BiLSTMClassifier
+from utilities.bnb_classifier import BNBClassifier
+from utilities.cnb_classifier import CNBClassifier
+from utilities.cnn_classifier import CNNClassifier
+from utilities.dm_classifier import DummyBaseClassifier
+from utilities.dt_classifier import DTClassifier
+from utilities.ett_classifier import ETClassifier
+from utilities.gb_classifier import GBTClassifier
+from utilities.gru_classifier import GRUClassifier
+from utilities.hgb_classifier import HGBTClassifier
+from utilities.kn_classifier import KNNClassifier
+from utilities.lda_classifier import LDAClassifier
+from utilities.lr_classifier import LRClassifier
+from utilities.lstm_classifier import LSTMClassifier
+from utilities.mnb_classifier import MNBClassifier
+from utilities.nsvc_classifier import NuSVCClassifier
+from utilities.qda_classifier import QDAClassifier
+from utilities.rc_classifier import RidgeClassifierModel
+from utilities.rnn_classifier import RNNClassifier
+from utilities.sgd_classifier import SGDClassifierModel
+from utilities.st_classifier import StackingClassifierModel
+from utilities.tfl_classifier import TransferLearningClassifier
+from utilities.tfm_classifier import TransformerClassifier
+from utilities.vt_classifier import VotingClassifierModel
 
 class Classifier:
     def __init__(self, data, model, class_label):
@@ -48,6 +73,58 @@ class Classifier:
             classifier = MLPClassifier(x_train, x_test, y_train, y_test)
         elif self.model == "RF":
             classifier = RFClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "AB":
+            classifier = AdaBoostModel(x_train, x_test, y_train, y_test)
+        elif self.model == "BG":
+            classifier = BaggingModel(x_train, x_test, y_train, y_test)
+        elif self.model == "BLSTM":
+            classifier = BiLSTMClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "BNB":
+            classifier = BNBClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "CNB":
+            classifier = CNBClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "CNN":
+            classifier = CNNClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "DB":
+            classifier = DummyBaseClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "DT":
+            classifier = DTClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "ET":
+            classifier = ETClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "GBT":
+            classifier = GBTClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "GRU":
+            classifier = GRUClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "HGBT":
+            classifier = HGBTClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "KNN":
+            classifier = KNNClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "LDA":
+            classifier = LDAClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "LR":
+            classifier = LRClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "LSTM":
+            classifier = LSTMClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "MNB":
+            classifier = MNBClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "NuSVC":
+            classifier = NuSVCClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "QDA":
+            classifier = QDAClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "Ridge":
+            classifier = RidgeClassifierModel(x_train, x_test, y_train, y_test)
+        elif self.model == "RNN":
+            classifier = RNNClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "SGD":
+            classifier = SGDClassifierModel(x_train, x_test, y_train, y_test)
+        elif self.model == "Stacking":
+            classifier = StackingClassifierModel(x_train, x_test, y_train, y_test)
+        elif self.model == "TFL":
+            classifier = TransferLearningClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "TF":
+            classifier = TransformerClassifier(x_train, x_test, y_train, y_test)
+        elif self.model == "VT":
+            classifier = VotingClassifierModel(x_train, x_test, y_train, y_test)
 
         y_pred = classifier.run()
         accuracy = metrics.accuracy_score(y_test, y_pred)
